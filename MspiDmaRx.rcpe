@@ -117,15 +117,15 @@
           <Path>src\smc_gen\Config_SDMAC00\Config_SDMAC00.h</Path>
           <Path>src\smc_gen\Config_SDMAC00\Config_SDMAC00_user.c</Path>
         </Category>
-        <Category Name="Config_MSPI1">
-          <Path>src\smc_gen\Config_MSPI1\Config_MSPI1.c</Path>
-          <Path>src\smc_gen\Config_MSPI1\Config_MSPI1.h</Path>
-          <Path>src\smc_gen\Config_MSPI1\Config_MSPI1_user.c</Path>
-        </Category>
         <Category Name="Config_SDMAC01">
           <Path>src\smc_gen\Config_SDMAC01\Config_SDMAC01.c</Path>
           <Path>src\smc_gen\Config_SDMAC01\Config_SDMAC01.h</Path>
           <Path>src\smc_gen\Config_SDMAC01\Config_SDMAC01_user.c</Path>
+        </Category>
+        <Category Name="Config_MSPI2">
+          <Path>src\smc_gen\Config_MSPI2\Config_MSPI2.c</Path>
+          <Path>src\smc_gen\Config_MSPI2\Config_MSPI2.h</Path>
+          <Path>src\smc_gen\Config_MSPI2\Config_MSPI2_user.c</Path>
         </Category>
       </Category>
       <Path>iodefine.h</Path>
@@ -160,14 +160,14 @@
           <Path>DefaultBuild\Config_SDMAC00_user.obj</Path>
           <Path>DefaultBuild\r_cg_dma_common.obj</Path>
           <Path>DefaultBuild\r_cg_dma_common_user.obj</Path>
-          <Path>DefaultBuild\Config_MSPI1.obj</Path>
-          <Path>DefaultBuild\Config_MSPI1_user.obj</Path>
           <Path>DefaultBuild\Config_SDMAC01.obj</Path>
           <Path>DefaultBuild\Config_SDMAC01_user.obj</Path>
+          <Path>DefaultBuild\Config_MSPI2.obj</Path>
+          <Path>DefaultBuild\Config_MSPI2_user.obj</Path>
         </LinkOrder>
         <CommonOptions>
+          <IncludePathForC>src\smc_gen\Config_MSPI2</IncludePathForC>
           <IncludePathForC>src\smc_gen\Config_SDMAC01</IncludePathForC>
-          <IncludePathForC>src\smc_gen\Config_MSPI1</IncludePathForC>
           <IncludePathForC>src\smc_gen\Config_SDMAC00</IncludePathForC>
           <IncludePathForC>src\smc_gen\Config_PORT</IncludePathForC>
           <IncludePathForC>.</IncludePathForC>
@@ -183,8 +183,8 @@
           <Option>-Xcpu=g4mh</Option>
           <Option>-g</Option>
           <Option>-g_line</Option>
+          <Option>-Isrc\smc_gen\Config_MSPI2</Option>
           <Option>-Isrc\smc_gen\Config_SDMAC01</Option>
-          <Option>-Isrc\smc_gen\Config_MSPI1</Option>
           <Option>-Isrc\smc_gen\Config_SDMAC00</Option>
           <Option>-Isrc\smc_gen\Config_PORT</Option>
           <Option>-I.</Option>

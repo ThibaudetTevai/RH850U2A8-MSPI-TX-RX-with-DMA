@@ -18,10 +18,10 @@
 ***********************************************************************************************************************/
 
 /***********************************************************************************************************************
-* File Name        : Config_MSPI1.h
+* File Name        : Config_MSPI2.h
 * Component Version: 1.3.1
 * Device(s)        : R7F702301BEBBA
-* Description      : This file implements device driver for Config_MSPI1.
+* Description      : This file implements device driver for Config_MSPI2.
 ***********************************************************************************************************************/
 
 /***********************************************************************************************************************
@@ -29,8 +29,8 @@ Includes
 ***********************************************************************************************************************/
 #include "r_cg_mspi.h"
 
-#ifndef CFG_Config_MSPI1_H
-#define CFG_Config_MSPI1_H
+#ifndef CFG_Config_MSPI2_H
+#define CFG_Config_MSPI2_H
 
 /***********************************************************************************************************************
 Macro definitions (Register bit)
@@ -39,15 +39,15 @@ Macro definitions (Register bit)
 /***********************************************************************************************************************
 Macro definitions
 ***********************************************************************************************************************/
-#define _MSPI1_FRAME_LENGTH                                      (0x0010U) /* MSPI frame length */
-#define _MSPI1_HARDWARE_TRIGGER_DISABLE                          (0x00000000UL) /* MSPI hardware trigger disable */
-#define _MSPI1_SETUP_TIME                                        (0x0001U) /* MSPI setup time */
-#define _MSPI1_HOLD_TIME                                         (0x0001U) /* MSPI hold time */
-#define _MSPI1_IDLE_TIME                                         (0x0001U) /* MSPI idle time */
-#define _MSPI1_INTER_DATA_TIME                                   (0x0000U) /* MSPI inter time */
-#define _MSPI1_FRAME_COUNT                                       (0x0008U) /* MSPI frame count */
-#define _MSPI1_RAMSTART_ADDRESS                                  (0x0000U) /* MSPI RAM start address */
-#define _MSPI1_CLOCK_FREQUENCY_DIVISION                          (0x0001U) /* MSPI1 clock frequency division */
+#define _MSPI2_FRAME_LENGTH                                      (0x0010U) /* MSPI frame length */
+#define _MSPI2_HARDWARE_TRIGGER_DISABLE                          (0x00000000UL) /* MSPI hardware trigger disable */
+#define _MSPI2_SETUP_TIME                                        (0x0001U) /* MSPI setup time */
+#define _MSPI2_HOLD_TIME                                         (0x0001U) /* MSPI hold time */
+#define _MSPI2_IDLE_TIME                                         (0x0001U) /* MSPI idle time */
+#define _MSPI2_INTER_DATA_TIME                                   (0x0000U) /* MSPI inter time */
+#define _MSPI2_FRAME_COUNT                                       (0x0008U) /* MSPI frame count */
+#define _MSPI2_RAMSTART_ADDRESS                                  (0x0000U) /* MSPI RAM start address */
+#define _MSPI2_CLOCK_FREQUENCY_DIVISION                          (0x0001U) /* MSPI2 clock frequency division */
 
 /***********************************************************************************************************************
 Typedef definitions
@@ -56,12 +56,12 @@ Typedef definitions
 /***********************************************************************************************************************
 Global functions
 ***********************************************************************************************************************/
-void R_Config_MSPI1_Create(void);
-void R_Config_MSPI1_Start(void);
-void R_Config_MSPI1_Stop(void);
-MD_STATUS R_Config_MSPI1_Receive(uint16_t* const rx_buf);
-void R_Config_MSPI1_Software_Trigger(void);
-void R_Config_MSPI1_Create_UserInit(void);
+void R_Config_MSPI2_Create(void);
+void R_Config_MSPI2_Start(void);
+void R_Config_MSPI2_Stop(void);
+MD_STATUS R_Config_MSPI2_Receive(uint16_t* const rx_buf);
+void R_Config_MSPI2_Software_Trigger(void);
+void R_Config_MSPI2_Create_UserInit(void);
 /* Start user code for function. Do not edit comment generated here */
 /* End user code. Do not edit comment generated here */
 #endif

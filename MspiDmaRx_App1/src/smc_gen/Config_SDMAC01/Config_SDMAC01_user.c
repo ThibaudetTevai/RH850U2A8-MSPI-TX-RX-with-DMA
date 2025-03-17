@@ -36,6 +36,7 @@ Includes
 #include "r_cg_userdefine.h"
 #include "Config_SDMAC01.h"
 /* Start user code for include. Do not edit comment generated here */
+#include "Config_MSPI2.h"
 /* End user code. Do not edit comment generated here */
 
 /***********************************************************************************************************************
@@ -78,6 +79,53 @@ void R_Config_SDMAC01_Callback_PE0_Address_Error(void)
 void r_Config_SDMAC01_end_interrupt(void)
 {
     /* Start user code for r_Config_SDMAC01_end_interrupt. Do not edit comment generated here */
+
+    D13  = 1;
+    
+    if(SDMAC0.DMA0CHFCR_1.BIT.CAEC)
+    {
+        D14 = 1;
+    }
+    
+    if(SDMAC0.DMA0CHSTA_1.BIT.DRQ) 
+    {
+        SDMAC0.DMA0CHFCR_1.BIT.DRQC = 1;
+        D9 = 1;
+    }
+    
+    if(SDMAC0.DMA0CHSTA_1.BIT.OVF) 
+    {
+        SDMAC0.DMA0CHFCR_1.BIT.OVFC = 1;
+        D10 = 1;
+    }
+    
+    if(SDMAC0.DMA0CHSTA_1.BIT.BUSY) 
+    {
+        SDMAC0.DMA0CHFCR_1.BIT.TEC = 1;
+        D12 = 1;
+    }
+    
+    if(SDMAC0.DMA0CHSTA_1.BIT.CAE) 
+    {
+        SDMAC0.DMA0CHFCR_1.BIT.CAEC = 1; 
+        D12 = 1;
+    }
+    
+    if(SDMAC0.DMA0CHSTA_1.BIT.TE) 
+    {
+        SDMAC0.DMA0CHCR_1.BIT.DE = 0;
+        SDMAC0.DMA0CHFCR_1.BIT.TEC = 1;        
+        SDMAC0.DMA0TSR_1.UINT32 = _DMAC01_TRANSFER_SIZE;
+        SDMAC0.DMA0CHCR_1.BIT.DE = 1;
+        D11 = 1;
+    }
+    
+    D9  = 0;
+    D10 = 0;
+    D11 = 0;
+    D12 = 0;
+    D13 = 0;
+    
     /* End user code. Do not edit comment generated here */
 }
 

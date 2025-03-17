@@ -38,7 +38,7 @@ Includes
 #include "Config_PORT.h"
 #include "Config_SDMAC00.h"
 #include "Config_SDMAC01.h"
-#include "Config_MSPI1.h"
+#include "Config_MSPI2.h"
 #include "r_cg_cgc.h"
 /* Start user code for include. Do not edit comment generated here */
 /* End user code. Do not edit comment generated here */
@@ -64,5 +64,5 @@ void R_Systeminit(void)
     R_Config_MSPI00_Create();
     R_Config_SDMAC00_Create();
     R_Config_SDMAC01_Create();
-    R_Config_MSPI1_Create();
+    R_Config_MSPI2_Create();
 }

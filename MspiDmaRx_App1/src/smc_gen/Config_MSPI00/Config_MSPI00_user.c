@@ -37,7 +37,6 @@ Includes
 #include "Config_MSPI00.h"
 /* Start user code for include. Do not edit comment generated here */
 #include "Config_SDMAC00.h"
-extern uint8_t EndSending;
 /* End user code. Do not edit comment generated here */
 
 /***********************************************************************************************************************
@@ -209,7 +208,6 @@ void R_Config_MSPI00_Callback_Interrupt_Frameend(void)
         r_Config_MSPI00_callback_sendend();
         r_Config_MSPI00_callback_receiveend();
         /* Start user code for R_Config_MSPI00_Callback_Interrupt_Frameend. Do not edit comment generated here */
-        EndSending = 1;
         R_Config_MSPI00_Software_Trigger();
         /* End user code. Do not edit comment generated here */
     }

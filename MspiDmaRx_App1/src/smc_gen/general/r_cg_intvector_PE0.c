@@ -557,7 +557,7 @@ extern void r_mspi0_interrupt_error(void);
 /* MSPI1 Transmit status interrupt for channel 0; */
 extern void eiint254(void);
 /* MSPI1 Receive status interrupt for channel 0; */
-extern void r_Config_MSPI1_channel10_interrupt_receive(void);
+extern void eiint255(void);
 /* MSPI1 Transmit status interrupt for channel 1; */
 extern void eiint256(void);
 /* MSPI1 Receive status interrupt for channel 1; */
@@ -569,19 +569,19 @@ extern void eiint259(void);
 /* MSPI1 Channel selectable Transmit status interrupt; */
 extern void eiint260(void);
 /* MSPI1 Channel selectable Receive status interrupt; */
-extern void r_Config_MSPI1_interrupt_receive(void);
+extern void eiint261(void);
 /* MSPI1 Channel selectable Frame count end interrupt; */
-extern void r_Config_MSPI1_interrupt_frameend(void);
+extern void eiint262(void);
 /* MSPI1 Channel selectable Error interrupt; */
-extern void r_Config_MSPI1_interrupt_error(void);
+extern void eiint263(void);
 /* MSPI2 Channel selectable Transmit status interrupt; */
 extern void eiint264(void);
 /* MSPI2 Channel selectable Receive status interrupt; */
-extern void eiint265(void);
+extern void r_Config_MSPI2_interrupt_receive(void);
 /* MSPI2 Channel selectable Frame count end interrupt; */
-extern void eiint266(void);
+extern void r_Config_MSPI2_interrupt_frameend(void);
 /* MSPI2 Channel selectable Error interrupt; */
-extern void eiint267(void);
+extern void r_Config_MSPI2_interrupt_error(void);
 /* MSPI3 Channel selectable Transmit status interrupt; */
 extern void eiint268(void);
 /* MSPI3 Channel selectable Receive status interrupt; */
@@ -2096,7 +2096,7 @@ void * const INT_Vectors_PE0[] = {
     /* MSPI1 Transmit status interrupt for channel 0; */
     (void *)eiint254,
     /* MSPI1 Receive status interrupt for channel 0; */
-    (void *)r_Config_MSPI1_channel10_interrupt_receive,
+    (void *)eiint255,
     /* MSPI1 Transmit status interrupt for channel 1; */
     (void *)eiint256,
     /* MSPI1 Receive status interrupt for channel 1; */
@@ -2108,19 +2108,19 @@ void * const INT_Vectors_PE0[] = {
     /* MSPI1 Channel selectable Transmit status interrupt; */
     (void *)eiint260,
     /* MSPI1 Channel selectable Receive status interrupt; */
-    (void *)r_Config_MSPI1_interrupt_receive,
+    (void *)eiint261,
     /* MSPI1 Channel selectable Frame count end interrupt; */
-    (void *)r_Config_MSPI1_interrupt_frameend,
+    (void *)eiint262,
     /* MSPI1 Channel selectable Error interrupt; */
-    (void *)r_Config_MSPI1_interrupt_error,
+    (void *)eiint263,
     /* MSPI2 Channel selectable Transmit status interrupt; */
     (void *)eiint264,
     /* MSPI2 Channel selectable Receive status interrupt; */
-    (void *)eiint265,
+    (void *)r_Config_MSPI2_interrupt_receive,
     /* MSPI2 Channel selectable Frame count end interrupt; */
-    (void *)eiint266,
+    (void *)r_Config_MSPI2_interrupt_frameend,
     /* MSPI2 Channel selectable Error interrupt; */
-    (void *)eiint267,
+    (void *)r_Config_MSPI2_interrupt_error,
     /* MSPI3 Channel selectable Transmit status interrupt; */
     (void *)eiint268,
     /* MSPI3 Channel selectable Receive status interrupt; */

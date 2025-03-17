@@ -62,7 +62,7 @@ Macro definitions
 #define INTC_TAUD_INTTAUD0I14_PRIORITY                         _INT_PRIORITY_15
 #define INTC_TAPA_INTTAPA0IPEK0_PRIORITY                       _INT_PRIORITY_15
 #define INTC_TAPA_INTTAPA0IVLY0_PRIORITY                       _INT_PRIORITY_15
-#define INTC_SDMAC_INTSDMACERR_PRIORITY                        _INT_PRIORITY_15
+#define INTC_SDMAC_INTSDMACERR_PRIORITY                        _INT_PRIORITY_1
 #define INTC_DTS_INTDTSERR_PRIORITY                            _INT_PRIORITY_15
 #define INTC_TPTM_INTTPTM0_PRIORITY                            _INT_PRIORITY_15
 #define INTC_TPTM_INTTPTM1_PRIORITY                            _INT_PRIORITY_15
@@ -77,8 +77,8 @@ Macro definitions
 #define INTC_DTS_INTDTSCT63TO32_PRIORITY                       _INT_PRIORITY_15
 #define INTC_DTS_INTDTSCT95TO64_PRIORITY                       _INT_PRIORITY_15
 #define INTC_DTS_INTDTSCT127TO96_PRIORITY                      _INT_PRIORITY_15
-#define INTC_SDMAC0_INTSDMAC0CH0_PRIORITY                      _INT_PRIORITY_15
-#define INTC_SDMAC0_INTSDMAC0CH1_PRIORITY                      _INT_PRIORITY_15
+#define INTC_SDMAC0_INTSDMAC0CH0_PRIORITY                      _INT_PRIORITY_3
+#define INTC_SDMAC0_INTSDMAC0CH1_PRIORITY                      _INT_PRIORITY_3
 #define INTC_SDMAC0_INTSDMAC0CH2_PRIORITY                      _INT_PRIORITY_15
 #define INTC_SDMAC0_INTSDMAC0CH3_PRIORITY                      _INT_PRIORITY_15
 #define INTC_SDMAC0_INTSDMAC0CH4_PRIORITY                      _INT_PRIORITY_15
@@ -264,13 +264,13 @@ Macro definitions
 #define INTC_ADCJ_INTADCJ2I2_PRIORITY                          _INT_PRIORITY_15
 #define INTC_ADCJ_INTADCJ2I3_PRIORITY                          _INT_PRIORITY_15
 #define INTC_ADCJ_INTADCJ2I4_PRIORITY                          _INT_PRIORITY_15
-#define INTC_MSPI_INTMSPI0TX0_PRIORITY                         _INT_PRIORITY_15
+#define INTC_MSPI_INTMSPI0TX0_PRIORITY                         _INT_PRIORITY_5
 #define INTC_MSPI_INTMSPI0RX0_PRIORITY                         _INT_PRIORITY_15
 #define INTC_MSPI_INTMSPI0TX1_PRIORITY                         _INT_PRIORITY_15
 #define INTC_MSPI_INTMSPI0RX1_PRIORITY                         _INT_PRIORITY_15
 #define INTC_MSPI_INTMSPI0TX2_PRIORITY                         _INT_PRIORITY_15
 #define INTC_MSPI_INTMSPI0RX2_PRIORITY                         _INT_PRIORITY_15
-#define INTC_MSPI_INTMSPI0TX_PRIORITY                          _INT_PRIORITY_15
+#define INTC_MSPI_INTMSPI0TX_PRIORITY                          _INT_PRIORITY_4
 #define INTC_MSPI_INTMSPI0RX_PRIORITY                          _INT_PRIORITY_15
 #define INTC_MSPI_INTMSPI0FE_PRIORITY                          _INT_PRIORITY_15
 #define INTC_MSPI_INTMSPI0ERR_PRIORITY                         _INT_PRIORITY_15
@@ -285,7 +285,7 @@ Macro definitions
 #define INTC_MSPI_INTMSPI1FE_PRIORITY                          _INT_PRIORITY_15
 #define INTC_MSPI_INTMSPI1ERR_PRIORITY                         _INT_PRIORITY_15
 #define INTC_MSPI_INTMSPI2TX_PRIORITY                          _INT_PRIORITY_15
-#define INTC_MSPI_INTMSPI2RX_PRIORITY                          _INT_PRIORITY_15
+#define INTC_MSPI_INTMSPI2RX_PRIORITY                          _INT_PRIORITY_3
 #define INTC_MSPI_INTMSPI2FE_PRIORITY                          _INT_PRIORITY_15
 #define INTC_MSPI_INTMSPI2ERR_PRIORITY                         _INT_PRIORITY_15
 #define INTC_MSPI_INTMSPI3TX_PRIORITY                          _INT_PRIORITY_15

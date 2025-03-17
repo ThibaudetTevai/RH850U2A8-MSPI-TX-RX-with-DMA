@@ -55,7 +55,7 @@ void R_CGC_Create_UserInit(void)
     /* Start user code for user init. Do not edit comment generated here */    
     SYSCTRL.MSRKCPROT.UINT32 = _WRITE_PROTECT_ENABLE;
     SYSCTRL.MSR_MSPI.BIT.MS_MSPI_0 = 0;
-    SYSCTRL.MSR_MSPI.BIT.MS_MSPI_1 = 0;
+    SYSCTRL.MSR_MSPI.BIT.MS_MSPI_2 = 0;
     __syncp();
     SYSCTRL.MSRKCPROT.UINT32 = _WRITE_PROTECT_DISABLE;
     /* End user code. Do not edit comment generated here */

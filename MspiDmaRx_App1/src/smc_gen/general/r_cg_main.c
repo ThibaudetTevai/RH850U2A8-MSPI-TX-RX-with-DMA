@@ -34,6 +34,7 @@ Includes
 ***********************************************************************************************************************/
 #include "r_smc_entry.h"
 /* Start user code for include. Do not edit comment generated here */
+#define ARRAY_LENGTH 100
 /* End user code. Do not edit comment generated here */
 
 /***********************************************************************************************************************
@@ -43,16 +44,17 @@ Global variables and functions
 void user_initPguard(void);
 void user_initvar_setIoDgb(void);
 void user_initArray_tabTxData(void);
+void user_initArray_tabRxData(void);
 
 #pragma section r0_disp32 "BuffTabTx" // Section address start at 0xFE400000
-uint32_t tabTxData[100];
+uint32_t tabTxData[ARRAY_LENGTH];
 #pragma section default
 
 #pragma section r0_disp32 "BuffTabRx" // Section address start at 0xFE400D00
-uint32_t tabRxData[100];
+uint32_t tabRxData[ARRAY_LENGTH];
 #pragma section default
 
-uint8_t EndSending = 0;
+uint8_t EndTxFlag = 0;
 /* End user code. Do not edit comment generated here */
 void r_main_userinit(void);
 
@@ -73,21 +75,21 @@ void main(void)
     R_MSPI_Start_Interrupt_MSPI0FE();
     R_MSPI_Start_Interrupt_MSPI0ERR();
     
-    R_Config_SDMAC00_Start();
     
+    R_Config_MSPI2_Start();
     R_Config_MSPI00_Start();
-    R_Config_MSPI1_Start();
-    R_Config_MSPI1_Receive(tabRxData);
     
-    R_Config_MSPI1_Software_Trigger();
+    R_Config_MSPI2_Software_Trigger();
     R_Config_MSPI00_Software_Trigger();    ///< Start MSPI0
+    R_Config_SDMAC01_Start();
+    R_Config_SDMAC00_Start();
     
     while (1)
     {
         D15 = 0;
-        while(!EndSending); 
+        while(!EndTxFlag); 
         D15 = 1;
-        EndSending = 0;
+        EndTxFlag = 0;
      }
     /* End user code. Do not edit comment generated here */
 }
@@ -112,14 +114,16 @@ void r_main_userinit(void)
     GUARD_PE0CL0.PEGKCPROT.UINT32 = 0xA5A5A501L; ///< The value is indicated in page 6059 of the user's manual
     GUARD_PE0CL0.PEGBAD0.UINT32 = 0xFDC00000L;   ///< local RAM base address
     GUARD_PE0CL0.PEGADV0.UINT32 = 0x3FF0000L;    ///< 64K local RAM is open
-    GUARD_PE0CL0.PEGSPID0.UINT32 |= (1 << 0x1C); ///< Default SPID of SDMAC1
-    GUARD_PE0CL0.PEGSPID0.UINT32 |= (1 << 0x1B); ///< Default SPID of SDMAC0
-    GUARD_PE0CL0.PEGPROT0.UINT32 = 0x00000153L;  ///< enable guard
+    GUARD_PE0CL0.PEGSPID0.UINT32 |= (1 << 0x1C); ///< Default SPID of SDMAC0  
+    GUARD_PE0CL0.PEGPROT0.UINT32 = 0x00000053L;  ///< enable guard
     GUARD_PE0CL0.PEGKCPROT.UINT32 = 0xA5A5A500L; ///< Close
+    
 
     PBGERRSLV40.PBGKCPROT.UINT32 = 0xA5A5A501L; ///< MSPI0
     PBG40.PBGPROT1_3.UINT32 |= (1 << 0x1C);
     PBG40.PBGPROT0_3.UINT32 = 0x00000153L;
+    PBG40.PBGPROT1_4.UINT32 |= (1 << 0x1C);
+    PBG40.PBGPROT0_4.UINT32 = 0x00000153L;
     PBGERRSLV40.PBGKCPROT.UINT32 = 0xA5A5A500L;
 }
 
@@ -144,6 +148,7 @@ void user_initvar_setIoDgb(void)
     D16 = 1;
         
     user_initArray_tabTxData();
+    user_initArray_tabRxData();
     
     // Set IO Debug at Low level
     D4 = 0;
@@ -166,13 +171,23 @@ void user_initvar_setIoDgb(void)
 void user_initArray_tabTxData(void)
 {
     //** Random value to push on the MSPI
-    tabTxData[0] = 0x3FF36A35;
-    tabTxData[1] = 0x12345678;
-    tabTxData[2] = 0x9ABCDEF1;
-    tabTxData[3] = 0x43216A35;
-    tabTxData[4] = 0x9ABCDEF1;
-    tabTxData[5] = 0x43216A35;
-    tabTxData[6] = 0x12345678;
-    tabTxData[7] = 0x9ABCDEF1;  
+    tabTxData[0]  = 0x3FF36A35;
+    tabTxData[1]  = 0x3CF6B79D;
+    tabTxData[2]  = 0x4DF69C3A;
+    tabTxData[3]  = 0xA179369B;
+    tabTxData[4]  = 0xE5429BB6;
+    tabTxData[5]  = 0xD97656EB;
+    tabTxData[6]  = 0xE0356CEC;
+    tabTxData[7]  = 0x3B2C837A;
+    tabTxData[8]  = 0x4A50DE77;
+    tabTxData[9]  = 0xAEC3610C;
+    tabTxData[10] = 0xB5B804B6;
+    tabTxData[11] = 0xB312B182;
+    tabTxData[12] = 0xC6AD3DEB;
+}
+
+void user_initArray_tabRxData(void)
+{
+    memset(tabRxData, 0, ARRAY_LENGTH);
 }
 /* End user code. Do not edit comment generated here */

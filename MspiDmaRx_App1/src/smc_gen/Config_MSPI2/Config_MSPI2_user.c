@@ -18,10 +18,10 @@
 ***********************************************************************************************************************/
 
 /***********************************************************************************************************************
-* File Name        : Config_SDMAC00_user.c
-* Component Version: 1.5.0
+* File Name        : Config_MSPI2_user.c
+* Component Version: 1.3.1
 * Device(s)        : R7F702301BEBBA
-* Description      : This file implements device driver for Config_SDMAC00.
+* Description      : This file implements device driver for Config_MSPI2.
 ***********************************************************************************************************************/
 /***********************************************************************************************************************
 Pragma directive
@@ -34,72 +34,112 @@ Includes
 ***********************************************************************************************************************/
 #include "r_cg_macrodriver.h"
 #include "r_cg_userdefine.h"
-#include "Config_SDMAC00.h"
+#include "Config_MSPI2.h"
 /* Start user code for include. Do not edit comment generated here */
 /* End user code. Do not edit comment generated here */
 
 /***********************************************************************************************************************
 Global variables and functions
 ***********************************************************************************************************************/
+extern volatile uint32_t  g_mspi2_rx_num;                        /* mspi2 receive data number */
+extern volatile uint32_t  g_mspi2_rx_total_num;                  /* mspi2 receive data total times */
+extern volatile uint16_t * gp_mspi2_rx_address;                  /* mspi2 receive buffer address */
 /* Start user code for global. Do not edit comment generated here */
 extern uint8_t EndTxFlag;
 /* End user code. Do not edit comment generated here */
 
 /***********************************************************************************************************************
-* Function Name: R_Config_SDMAC00_Create_UserInit
-* Description  : This function adds user code after initializing DMAC00 module.
+* Function Name: R_Config_MSPI2_Create_UserInit
+* Description  : This function adds user code after initializing MSPI module
 * Arguments    : None
 * Return Value : None
 ***********************************************************************************************************************/
-void R_Config_SDMAC00_Create_UserInit(void)
+void R_Config_MSPI2_Create_UserInit(void)
 {
     /* Start user code for user init. Do not edit comment generated here */
     /* End user code. Do not edit comment generated here */
 }
 
 /***********************************************************************************************************************
-* Function Name: R_Config_SDMAC00_Callback_PE0_Address_Error
-* Description  : This function handles the INTSDMACERR interrupt.
+* Function Name: r_Config_MSPI2_interrupt_receive
+* Description  : This function is MSPI2 receive interrupt service routine
 * Arguments    : None
 * Return Value : None
 ***********************************************************************************************************************/
-void R_Config_SDMAC00_Callback_PE0_Address_Error(void)
+#pragma interrupt r_Config_MSPI2_interrupt_receive(enable=false, channel=265, fpu=true, callt=false)
+void r_Config_MSPI2_interrupt_receive(void)
 {
-    /* Start user code for R_Config_SDMAC00_Callback_PE0_Address_Error. Do not edit comment generated here */
-    /* End user code. Do not edit comment generated here */
+    uint8_t err_type = 0U;
+    uint32_t temp_intmsk = 0U;
+    uint32_t temp = 0U;
+
+    temp_intmsk = MSPI2_INTF.MSPI2INTMSK1.UINT32;
+    MSPI2_INTF.MSPI2INTMSK1.UINT32 = _MSPI_ALL_CHANNELS_INTERRUPT_MASKED;
+    if ((MSPI2_INTF.MSPI2INTF1.UINT32 & _MSPI_CHANNEL0_INTERRUPT_OCCURRED) != 0U)
+    {
+        MSPI2_INTF.MSPI2INTFC1.UINT32 = _MSPI_CHANNEL0_INTERRUPT_FLAG_CLEAR;
+        err_type = (MSPI2.FRERST0.UINT8 & (_MSPI_CRC_ERROR_DETECTED | _MSPI_PARITY_ERROR_DETECTED));
+        MSPI2.FRERSTC0.UINT8 |= (_MSPI_CONSISTENCY_ERROR_CLEAR | _MSPI_CRC_ERROR_CLEAR | _MSPI_PARITY_ERROR_CLEAR);
+        if (err_type == 0U)
+        {
+            temp = g_mspi2_rx_total_num;
+            if (g_mspi2_rx_num < temp)
+            {
+                *gp_mspi2_rx_address = MSPI2.RXDA00.UINT32;
+                gp_mspi2_rx_address++;
+                g_mspi2_rx_num++;
+            }
+        }
+    }
+    MSPI2_INTF.MSPI2INTMSK1.UINT32 = temp_intmsk;
 }
 
 /***********************************************************************************************************************
-* Function Name: r_Config_SDMAC00_end_interrupt
-* Description  : This function handles the INTSDMAC0CH0 interrupt.
+* Function Name: r_Config_MSPI2_interrupt_error
+* Description  : This function is MSPI2 error interrupt service routine
 * Arguments    : None
 * Return Value : None
 ***********************************************************************************************************************/
-#pragma interrupt r_Config_SDMAC00_end_interrupt(enable=false, channel=47, fpu=true, callt=false)
-void r_Config_SDMAC00_end_interrupt(void)
+#pragma interrupt r_Config_MSPI2_interrupt_error(enable=false, channel=267, fpu=true, callt=false)
+void r_Config_MSPI2_interrupt_error(void)
 {
-    /* Start user code for r_Config_SDMAC00_end_interrupt. Do not edit comment generated here */    
-    if(SDMAC0.DMA0CHSTA_0.BIT.DRQ) 
+    uint32_t temp_intmsk = 0U;
+
+    temp_intmsk = MSPI2_INTF.MSPI2INTMSK3.UINT32;
+    MSPI2_INTF.MSPI2INTMSK3.UINT32 = _MSPI_ALL_CHANNELS_INTERRUPT_MASKED;
+    if ((MSPI2_INTF.MSPI2INTF3.UINT32 & _MSPI_CHANNEL0_INTERRUPT_OCCURRED) != 0U)
     {
-        SDMAC0.DMA0CHFCR_0.BIT.DRQC = 1;
+        MSPI2_INTF.MSPI2INTFC3.UINT32 = _MSPI_CHANNEL0_INTERRUPT_FLAG_CLEAR;
+        MSPI2.CESTC0.UINT8 |= (_MSPI_CHANNEL_CONSISTENCY_ERROR_CLEAR | _MSPI_CHANNEL_CRC_ERROR_CLEAR | 
+                              _MSPI_CHANNEL_PARITY_ERROR_CLEAR | _MSPI_CHANNEL_OVER_READ_ERROR_CLEAR | 
+                              _MSPI_CHANNEL_OVER_WRITE_ERROR_CLEAR | _MSPI_CHANNEL_OVER_RUN_ERROR_CLEAR);
     }
-    
-    if(SDMAC0.DMA0CHSTA_0.BIT.OVF) 
+    MSPI2_INTF.MSPI2INTMSK3.UINT32 = temp_intmsk;
+}
+
+/***********************************************************************************************************************
+* Function Name: r_Config_MSPI2_interrupt_frameend
+* Description  : This function is MSPI2 frame end interrupt service routine
+* Arguments    : None
+* Return Value : None
+***********************************************************************************************************************/
+#pragma interrupt r_Config_MSPI2_interrupt_frameend(enable=false, channel=266, fpu=true, callt=false)
+void r_Config_MSPI2_interrupt_frameend(void)
+{
+    uint32_t temp_intmsk = 0U;
+
+    temp_intmsk = MSPI2_INTF.MSPI2INTMSK2.UINT32;
+    MSPI2_INTF.MSPI2INTMSK2.UINT32 = _MSPI_ALL_CHANNELS_INTERRUPT_MASKED;
+    if ((MSPI2_INTF.MSPI2INTF2.UINT32 & _MSPI_CHANNEL0_INTERRUPT_OCCURRED) != 0U)
     {
-        SDMAC0.DMA0CHFCR_0.BIT.OVFC = 1;
+        MSPI2_INTF.MSPI2INTFC2.UINT32 = _MSPI_CHANNEL0_INTERRUPT_FLAG_CLEAR;
+        /* Start user code for r_Config_MSPI2_interrupt_frameend. Do not edit comment generated here */
+        D4 = 1;
+        R_Config_MSPI2_Software_Trigger();
+        EndTxFlag = 1;
+        /* End user code. Do not edit comment generated here */
     }
-    
-    if(SDMAC0.DMA0CHSTA_0.BIT.TE) 
-    {
-        SDMAC0.DMA0CHFCR_0.BIT.DEC = 1;
-        SDMAC0.DMA0CHFCR_0.BIT.TEC = 1;
-    }
-    
-    if(SDMAC0.DMA0CHSTA_0.BIT.BUSY) 
-    {
-        //SDMAC0.DMA0CHFCR_0.BIT.TEC = 1; 
-    }
-    /* End user code. Do not edit comment generated here */
+    MSPI2_INTF.MSPI2INTMSK2.UINT32 = temp_intmsk;
 }
 
 /* Start user code for adding. Do not edit comment generated here */

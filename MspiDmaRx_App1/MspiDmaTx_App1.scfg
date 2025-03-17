@@ -287,7 +287,7 @@
             <Item Enabled="false" checked="true" id="PE0"/>
             <Item Enabled="false" checked="true" id="PE1"/>
         </Item>
-        <Item generateEntity="true" generateFunction="false" id="sDMAC_INTSDMACERR" interruptHandlerFlag="true" interruptHandlerName="r_sdmac_address_error_interrupt" oSManagementInterrupt="false" priority="15">
+        <Item generateEntity="true" generateFunction="false" id="sDMAC_INTSDMACERR" interruptHandlerFlag="true" interruptHandlerName="r_sdmac_address_error_interrupt" oSManagementInterrupt="false" priority="1">
             <Item Enabled="true" checked="true" id="PE0"/>
             <Item Enabled="false" checked="true" id="PE1"/>
         </Item>
@@ -342,11 +342,11 @@
             <Item Enabled="false" checked="true" id="PE0"/>
             <Item Enabled="false" checked="false" id="PE1"/>
         </Item>
-        <Item generateEntity="true" generateFunction="false" id="sDMAC0_INTSDMAC0CH0" interruptHandlerFlag="true" interruptHandlerName="r_Config_SDMAC00_end_interrupt" oSManagementInterrupt="false" priority="15">
+        <Item generateEntity="true" generateFunction="false" id="sDMAC0_INTSDMAC0CH0" interruptHandlerFlag="true" interruptHandlerName="r_Config_SDMAC00_end_interrupt" oSManagementInterrupt="false" priority="3">
             <Item Enabled="true" checked="true" id="PE0"/>
             <Item Enabled="false" checked="false" id="PE1"/>
         </Item>
-        <Item generateEntity="true" generateFunction="false" id="sDMAC0_INTSDMAC0CH1" interruptHandlerFlag="true" interruptHandlerName="r_Config_SDMAC01_end_interrupt" oSManagementInterrupt="false" priority="15">
+        <Item generateEntity="true" generateFunction="false" id="sDMAC0_INTSDMAC0CH1" interruptHandlerFlag="true" interruptHandlerName="r_Config_SDMAC01_end_interrupt" oSManagementInterrupt="false" priority="3">
             <Item Enabled="true" checked="true" id="PE0"/>
             <Item Enabled="false" checked="false" id="PE1"/>
         </Item>
@@ -1090,7 +1090,7 @@
             <Item Enabled="false" checked="true" id="PE0"/>
             <Item Enabled="false" checked="false" id="PE1"/>
         </Item>
-        <Item generateEntity="true" generateFunction="false" id="MSPI_MSPI0TX0" interruptHandlerFlag="true" interruptHandlerName="r_Config_MSPI00_channel00_interrupt_send" oSManagementInterrupt="false" priority="15">
+        <Item generateEntity="true" generateFunction="false" id="MSPI_MSPI0TX0" interruptHandlerFlag="true" interruptHandlerName="r_Config_MSPI00_channel00_interrupt_send" oSManagementInterrupt="false" priority="5">
             <Item Enabled="true" checked="true" id="PE0"/>
             <Item Enabled="false" checked="false" id="PE1"/>
         </Item>
@@ -1114,7 +1114,7 @@
             <Item Enabled="false" checked="true" id="PE0"/>
             <Item Enabled="false" checked="false" id="PE1"/>
         </Item>
-        <Item generateEntity="true" generateFunction="false" id="MSPI_MSPI0TX" interruptHandlerFlag="true" interruptHandlerName="r_mspi0_interrupt_send" oSManagementInterrupt="false" priority="15">
+        <Item generateEntity="true" generateFunction="false" id="MSPI_MSPI0TX" interruptHandlerFlag="true" interruptHandlerName="r_mspi0_interrupt_send" oSManagementInterrupt="false" priority="4">
             <Item Enabled="true" checked="true" id="PE0"/>
             <Item Enabled="false" checked="false" id="PE1"/>
         </Item>
@@ -1134,8 +1134,8 @@
             <Item Enabled="false" checked="true" id="PE0"/>
             <Item Enabled="false" checked="false" id="PE1"/>
         </Item>
-        <Item generateEntity="true" generateFunction="false" id="MSPI_MSPI1RX0" interruptHandlerFlag="true" interruptHandlerName="r_Config_MSPI1_channel10_interrupt_receive" oSManagementInterrupt="false" priority="15">
-            <Item Enabled="true" checked="true" id="PE0"/>
+        <Item generateEntity="true" generateFunction="false" id="MSPI_MSPI1RX0" interruptHandlerFlag="false" interruptHandlerName="eiint255" oSManagementInterrupt="false" priority="15">
+            <Item Enabled="false" checked="true" id="PE0"/>
             <Item Enabled="false" checked="false" id="PE1"/>
         </Item>
         <Item generateEntity="true" generateFunction="false" id="MSPI_MSPI1TX1" interruptHandlerFlag="false" interruptHandlerName="eiint256" oSManagementInterrupt="false" priority="15">
@@ -1158,32 +1158,32 @@
             <Item Enabled="false" checked="true" id="PE0"/>
             <Item Enabled="false" checked="false" id="PE1"/>
         </Item>
-        <Item generateEntity="true" generateFunction="false" id="MSPI_MSPI1RX" interruptHandlerFlag="true" interruptHandlerName="r_Config_MSPI1_interrupt_receive" oSManagementInterrupt="false" priority="15">
-            <Item Enabled="true" checked="true" id="PE0"/>
+        <Item generateEntity="true" generateFunction="false" id="MSPI_MSPI1RX" interruptHandlerFlag="false" interruptHandlerName="eiint261" oSManagementInterrupt="false" priority="15">
+            <Item Enabled="false" checked="true" id="PE0"/>
             <Item Enabled="false" checked="false" id="PE1"/>
         </Item>
-        <Item generateEntity="true" generateFunction="false" id="MSPI_MSPI1FE" interruptHandlerFlag="true" interruptHandlerName="r_Config_MSPI1_interrupt_frameend" oSManagementInterrupt="false" priority="15">
-            <Item Enabled="true" checked="true" id="PE0"/>
+        <Item generateEntity="true" generateFunction="false" id="MSPI_MSPI1FE" interruptHandlerFlag="false" interruptHandlerName="eiint262" oSManagementInterrupt="false" priority="15">
+            <Item Enabled="false" checked="true" id="PE0"/>
             <Item Enabled="false" checked="false" id="PE1"/>
         </Item>
-        <Item generateEntity="true" generateFunction="false" id="MSPI_MSPI1ERR" interruptHandlerFlag="true" interruptHandlerName="r_Config_MSPI1_interrupt_error" oSManagementInterrupt="false" priority="15">
-            <Item Enabled="true" checked="true" id="PE0"/>
+        <Item generateEntity="true" generateFunction="false" id="MSPI_MSPI1ERR" interruptHandlerFlag="false" interruptHandlerName="eiint263" oSManagementInterrupt="false" priority="15">
+            <Item Enabled="false" checked="true" id="PE0"/>
             <Item Enabled="false" checked="false" id="PE1"/>
         </Item>
         <Item generateEntity="true" generateFunction="false" id="MSPI_MSPI2TX" interruptHandlerFlag="false" interruptHandlerName="eiint264" oSManagementInterrupt="false" priority="15">
             <Item Enabled="false" checked="true" id="PE0"/>
             <Item Enabled="false" checked="false" id="PE1"/>
         </Item>
-        <Item generateEntity="true" generateFunction="false" id="MSPI_MSPI2RX" interruptHandlerFlag="false" interruptHandlerName="eiint265" oSManagementInterrupt="false" priority="15">
-            <Item Enabled="false" checked="true" id="PE0"/>
+        <Item generateEntity="true" generateFunction="false" id="MSPI_MSPI2RX" interruptHandlerFlag="true" interruptHandlerName="r_Config_MSPI2_interrupt_receive" oSManagementInterrupt="false" priority="3">
+            <Item Enabled="true" checked="true" id="PE0"/>
             <Item Enabled="false" checked="false" id="PE1"/>
         </Item>
-        <Item generateEntity="true" generateFunction="false" id="MSPI_MSPI2FE" interruptHandlerFlag="false" interruptHandlerName="eiint266" oSManagementInterrupt="false" priority="15">
-            <Item Enabled="false" checked="true" id="PE0"/>
+        <Item generateEntity="true" generateFunction="false" id="MSPI_MSPI2FE" interruptHandlerFlag="true" interruptHandlerName="r_Config_MSPI2_interrupt_frameend" oSManagementInterrupt="false" priority="15">
+            <Item Enabled="true" checked="true" id="PE0"/>
             <Item Enabled="false" checked="false" id="PE1"/>
         </Item>
-        <Item generateEntity="true" generateFunction="false" id="MSPI_MSPI2ERR" interruptHandlerFlag="false" interruptHandlerName="eiint267" oSManagementInterrupt="false" priority="15">
-            <Item Enabled="false" checked="true" id="PE0"/>
+        <Item generateEntity="true" generateFunction="false" id="MSPI_MSPI2ERR" interruptHandlerFlag="true" interruptHandlerName="r_Config_MSPI2_interrupt_error" oSManagementInterrupt="false" priority="15">
+            <Item Enabled="true" checked="true" id="PE0"/>
             <Item Enabled="false" checked="false" id="PE1"/>
         </Item>
         <Item generateEntity="true" generateFunction="false" id="MSPI_MSPI3TX" interruptHandlerFlag="false" interruptHandlerName="eiint268" oSManagementInterrupt="false" priority="15">
@@ -2932,15 +2932,18 @@
         </Item>
     </tool>
     <tool id="Pins" version="1.0.1.0">
+        <pinItem allocation="A3" comments="" direction="None" id="_ERROROUT_M" isUsedBySoftware="true" locked="false" operationMode="" status="4"/>
+        <pinItem allocation="P4$3" comments="" direction="None" id="MSPI2SI" isUsedBySoftware="true" locked="false" operationMode="" status="0"/>
+        <pinItem allocation="P1$3" comments="" direction="None" id="MSPI2SC" isUsedBySoftware="true" locked="false" operationMode="" status="0"/>
         <pinItem allocation="H25" comments="" direction="None" id="X1" isUsedBySoftware="true" locked="false" operationMode="" status="0"/>
         <pinItem allocation="J25" comments="" direction="None" id="X2" isUsedBySoftware="true" locked="false" operationMode="" status="0"/>
-        <pinItem allocation="G3" comments="" direction="None" id="_MSPI1SSI" isUsedBySoftware="true" locked="false" operationMode="" status="0"/>
-        <pinItem allocation="L2$3" comments="" direction="None" id="MSPI1SI" isUsedBySoftware="true" locked="false" operationMode="" status="0"/>
-        <pinItem allocation="J3$3" comments="" direction="None" id="MSPI1SC" isUsedBySoftware="true" locked="false" operationMode="" status="0"/>
+        <pinItem allocation="AE12" comments="" direction="None" id="_ERRORIN0" isUsedBySoftware="true" locked="false" operationMode="" status="4"/>
+        <pinItem allocation="AE11" comments="" direction="None" id="_ERRORIN1" isUsedBySoftware="true" locked="false" operationMode="" status="4"/>
         <pinItem allocation="AE13" comments="" direction="None" id="MSPI0CSS0" isUsedBySoftware="true" locked="false" operationMode="" status="0"/>
         <pinItem allocation="U2" comments="" direction="None" id="AP2_10" isUsedBySoftware="true" locked="false" operationMode="" status="0"/>
         <pinItem allocation="V1" comments="" direction="None" id="AP2_11" isUsedBySoftware="true" locked="false" operationMode="" status="0"/>
         <pinItem allocation="AC5" comments="" direction="None" id="AP2_12" isUsedBySoftware="true" locked="false" operationMode="" status="0"/>
+        <pinItem allocation="N1" comments="" direction="None" id="_MSPI2SSI" isUsedBySoftware="true" locked="false" operationMode="" status="0"/>
         <pinItem allocation="W4" comments="" direction="None" id="AP2_5" isUsedBySoftware="true" locked="false" operationMode="" status="0"/>
         <pinItem allocation="W3" comments="" direction="None" id="AP2_4" isUsedBySoftware="true" locked="false" operationMode="" status="0"/>
         <pinItem allocation="Y1" comments="" direction="None" id="AP2_7" isUsedBySoftware="true" locked="false" operationMode="" status="0"/>
@@ -3063,7 +3066,7 @@
                     <item id="driveStrength2" input="" vlaue="0"/>
                     <item id="driveStrength1" input="" vlaue="0"/>
                 </option>
-                <option enabled="true" id="txpriority" selection="Level15">
+                <option enabled="true" id="txpriority" selection="Level4">
                     <item id="Level0" input="" vlaue="0"/>
                     <item id="Level1" input="" vlaue="0"/>
                     <item id="Level2" input="" vlaue="0"/>
@@ -3279,7 +3282,7 @@
                 <option enabled="true" id="length" selection="frame">
                     <item id="frame" input="16" vlaue="16"/>
                 </option>
-                <option enabled="true" id="txnpriority" selection="Level15">
+                <option enabled="true" id="txnpriority" selection="Level5">
                     <item id="Level0" input="" vlaue="0"/>
                     <item id="Level1" input="" vlaue="0"/>
                     <item id="Level2" input="" vlaue="0"/>
@@ -4142,7 +4145,7 @@
                     <item id="64ByteUnit" input="" vlaue="0"/>
                 </option>
                 <option enabled="true" id="transferSize" selection="transferSizeValue">
-                    <item id="transferSizeValue" input="16" vlaue="16"/>
+                    <item id="transferSizeValue" input="32" vlaue="32"/>
                 </option>
                 <option enabled="true" id="requestSource" selection="HWRequestGrp0">
                     <item id="autoRequest" input="" vlaue="0"/>
@@ -4612,7 +4615,7 @@
                     <item id="checked" input="" vlaue="0"/>
                     <item id="unchecked" input="" vlaue="0"/>
                 </option>
-                <option enabled="true" id="addressErrIntPriority" selection="Level15">
+                <option enabled="true" id="addressErrIntPriority" selection="Level1">
                     <item id="Level0" input="" vlaue="0"/>
                     <item id="Level1" input="" vlaue="0"/>
                     <item id="Level2" input="" vlaue="0"/>
@@ -4642,7 +4645,7 @@
                     <item id="checked" input="" vlaue="0"/>
                     <item id="unchecked" input="" vlaue="0"/>
                 </option>
-                <option enabled="true" id="endIntPriority" selection="Level15">
+                <option enabled="true" id="endIntPriority" selection="Level3">
                     <item id="Level0" input="" vlaue="0"/>
                     <item id="Level1" input="" vlaue="0"/>
                     <item id="Level2" input="" vlaue="0"/>
@@ -4814,13 +4817,13 @@
                     <item id="highest" input="" vlaue="0"/>
                 </option>
                 <option enabled="true" id="sourceAddress" selection="sourceAddressValue">
-                    <item id="sourceAddressValue" input="0x00000000" vlaue="0"/>
+                    <item id="sourceAddressValue" input="0xFFD800D0" vlaue="4292346064"/>
                 </option>
                 <option enabled="true" id="sourceAddressMode" selection="fixed">
                     <item id="fixed" input="" vlaue="0"/>
                     <item id="increased" input="" vlaue="0"/>
                 </option>
-                <option enabled="true" id="sourceTransactionSize" selection="1ByteUnit">
+                <option enabled="true" id="sourceTransactionSize" selection="2ByteUnit">
                     <item id="1ByteUnit" input="" vlaue="0"/>
                     <item id="2ByteUnit" input="" vlaue="0"/>
                     <item id="4ByteUnit" input="" vlaue="0"/>
@@ -4830,13 +4833,13 @@
                     <item id="64ByteUnit" input="" vlaue="0"/>
                 </option>
                 <option enabled="true" id="destinationAddress" selection="destinationAddressValue">
-                    <item id="destinationAddressValue" input="0x00000000" vlaue="0"/>
+                    <item id="destinationAddressValue" input="0xFE400D00" vlaue="4265610496"/>
                 </option>
-                <option enabled="true" id="destinationAddressMode" selection="fixed">
+                <option enabled="true" id="destinationAddressMode" selection="increased">
                     <item id="fixed" input="" vlaue="0"/>
                     <item id="increased" input="" vlaue="0"/>
                 </option>
-                <option enabled="true" id="destinationTransactionSize" selection="1ByteUnit">
+                <option enabled="true" id="destinationTransactionSize" selection="2ByteUnit">
                     <item id="1ByteUnit" input="" vlaue="0"/>
                     <item id="2ByteUnit" input="" vlaue="0"/>
                     <item id="4ByteUnit" input="" vlaue="0"/>
@@ -4846,14 +4849,14 @@
                     <item id="64ByteUnit" input="" vlaue="0"/>
                 </option>
                 <option enabled="true" id="transferSize" selection="transferSizeValue">
-                    <item id="transferSizeValue" input="0" vlaue="0"/>
+                    <item id="transferSizeValue" input="16" vlaue="16"/>
                 </option>
                 <option enabled="true" id="requestSource" selection="HWRequestGrp0">
                     <item id="autoRequest" input="" vlaue="0"/>
                     <item id="HWRequestGrp0" input="" vlaue="0"/>
                     <item id="HWRequestGrp1" input="" vlaue="0"/>
                 </option>
-                <option enabled="true" id="triggerSourceGrp0" selection="DMAMSPI8">
+                <option enabled="true" id="triggerSourceGrp0" selection="DMAMSPI16">
                     <item id="INTADCJ0I0" input="" vlaue="0"/>
                     <item id="INTADCJ0I1" input="" vlaue="0"/>
                     <item id="INTADCJ0I2" input="" vlaue="0"/>
@@ -5316,7 +5319,7 @@
                     <item id="checked" input="" vlaue="0"/>
                     <item id="unchecked" input="" vlaue="0"/>
                 </option>
-                <option enabled="true" id="addressErrIntPriority" selection="Level15">
+                <option enabled="true" id="addressErrIntPriority" selection="Level1">
                     <item id="Level0" input="" vlaue="0"/>
                     <item id="Level1" input="" vlaue="0"/>
                     <item id="Level2" input="" vlaue="0"/>
@@ -5346,7 +5349,7 @@
                     <item id="checked" input="" vlaue="0"/>
                     <item id="unchecked" input="" vlaue="0"/>
                 </option>
-                <option enabled="true" id="endIntPriority" selection="Level15">
+                <option enabled="true" id="endIntPriority" selection="Level3">
                     <item id="Level0" input="" vlaue="0"/>
                     <item id="Level1" input="" vlaue="0"/>
                     <item id="Level2" input="" vlaue="0"/>
@@ -5487,8 +5490,8 @@
             </allocator>
             <source description="Code generator components provide peripheral drivers with customized generated source geared towards small code size" display="Code Generator" id="com.renesas.smc.tools.swcomponent.codegenerator.source"/>
         </configuration>
-        <configuration apiMode="FULL_API" id="209b0812-a42f-448c-b1ea-09bf170d4fcf" inuse="true" name="Config_MSPI1">
-            <allocatable id="1">
+        <configuration apiMode="FULL_API" id="209b0812-a42f-448c-b1ea-09bf170d4fcf" inuse="true" name="Config_MSPI2">
+            <allocatable id="2">
                 <option enabled="true" id="clockdefaultlevel" selection="LowItem">
                     <item id="LowItem" input="" vlaue="0"/>
                     <item id="HighItem" input="" vlaue="0"/>
@@ -5509,7 +5512,7 @@
                     <item id="INTMSPICSRX2" input="" vlaue="0"/>
                     <item id="INTMSPICSRX3" input="" vlaue="0"/>
                 </option>
-                <option enabled="true" id="rxpriority" selection="Level15">
+                <option enabled="true" id="rxpriority" selection="Level3">
                     <item id="Level0" input="" vlaue="0"/>
                     <item id="Level1" input="" vlaue="0"/>
                     <item id="Level2" input="" vlaue="0"/>
@@ -5667,24 +5670,6 @@
                 <option enabled="true" id="length" selection="frame">
                     <item id="frame" input="16" vlaue="16"/>
                 </option>
-                <option enabled="true" id="rxnpriority" selection="Level15">
-                    <item id="Level0" input="" vlaue="0"/>
-                    <item id="Level1" input="" vlaue="0"/>
-                    <item id="Level2" input="" vlaue="0"/>
-                    <item id="Level3" input="" vlaue="0"/>
-                    <item id="Level4" input="" vlaue="0"/>
-                    <item id="Level5" input="" vlaue="0"/>
-                    <item id="Level6" input="" vlaue="0"/>
-                    <item id="Level7" input="" vlaue="0"/>
-                    <item id="Level8" input="" vlaue="0"/>
-                    <item id="Level9" input="" vlaue="0"/>
-                    <item id="Level10" input="" vlaue="0"/>
-                    <item id="Level11" input="" vlaue="0"/>
-                    <item id="Level12" input="" vlaue="0"/>
-                    <item id="Level13" input="" vlaue="0"/>
-                    <item id="Level14" input="" vlaue="0"/>
-                    <item id="Level15" input="" vlaue="0"/>
-                </option>
                 <option enabled="true" id="triggerselect" selection="dmaenable">
                     <item id="dmaenable" input="" vlaue="0"/>
                     <item id="dtsenable" input="" vlaue="0"/>
@@ -5701,11 +5686,11 @@
                     <item id="setting2" input="" vlaue="0"/>
                     <item id="setting3" input="" vlaue="0"/>
                 </option>
-                <option enabled="true" id="receivecallback" selection="EnableItem">
+                <option enabled="true" id="receivecallback" selection="DisableItem">
                     <item id="DisableItem" input="" vlaue="0"/>
                     <item id="EnableItem" input="" vlaue="0"/>
                 </option>
-                <option enabled="true" id="errorcallback" selection="EnableItem">
+                <option enabled="true" id="errorcallback" selection="DisableItem">
                     <item id="DisableItem" input="" vlaue="0"/>
                     <item id="EnableItem" input="" vlaue="0"/>
                 </option>
@@ -5717,7 +5702,7 @@
                 </option>
             </allocatable>
             <component description="The Multichannel Serial Peripheral Interface (MSPI) is communication function that three-wire serial data transfer(Slave mode) with clock synchronous.Multiple slave configuration are possible due to the chip select signal." detailDescription="" display="MSPI Slave" id="com.renesas.smc.tools.swcomponent.codegenerator.rh850.mspislave" version="1.3.1"/>
-            <allocator channelLevel0="1" channelLevel1="" channelLevel2="" channelLevel3="" channelLevel4="" channelLevel5="" description="MSPI1" display="MSPI1" id="com.renesas.smc.tools.swcomponent.codegenerator.rh850.mspislavemode.allocator1" type="mspi">
+            <allocator channelLevel0="2" channelLevel1="" channelLevel2="" channelLevel3="" channelLevel4="" channelLevel5="" description="MSPI2" display="MSPI2" id="com.renesas.smc.tools.swcomponent.codegenerator.rh850.mspislavemode.allocator2" type="mspi">
                 <context>
                     <option enabled="true" id="Mode" selection="receive">
                         <item enabled="true" id="transmit"/>

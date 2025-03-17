@@ -35,7 +35,7 @@ Includes
 #include "Config_PORT.h"
 #include "Config_SDMAC00.h"
 #include "Config_SDMAC01.h"
-#include "Config_MSPI1.h"
+#include "Config_MSPI2.h"
 #include "r_cg_dma_common.h"
 #include "r_cg_mspi_common.h"
 #include "r_cg_cgc.h"

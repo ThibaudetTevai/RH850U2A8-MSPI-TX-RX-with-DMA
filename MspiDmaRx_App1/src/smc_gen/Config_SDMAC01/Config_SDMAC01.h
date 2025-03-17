@@ -40,9 +40,9 @@ Macro definitions (Register bit)
 Macro definitions
 ***********************************************************************************************************************/
 #define _DMAC01_SPID_Value                    (0x00001C00UL)
-#define _DMAC01_SOURCE_ADDRESS                (0x00000000UL)
-#define _DMAC01_DESTINATION_ADDRESS           (0x00000000UL)
-#define _DMAC01_TRANSFER_SIZE                 (0x00000000UL)
+#define _DMAC01_SOURCE_ADDRESS                (0xFFD800D0UL)
+#define _DMAC01_DESTINATION_ADDRESS           (0xFE400D00UL)
+#define _DMAC01_TRANSFER_SIZE                 (0x00000010UL)
 #define _DMAC01_UPPER_LIMIT_BUFFER            (0x00000080UL)
 #define _DMAC01_TRANSFER_COUNT                (0x00010000UL)
 
